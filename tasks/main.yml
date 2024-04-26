@@ -1,0 +1,21 @@
+---
+- name: Install the "{{ pkg_name }}" Package
+  apt:
+   name: "{{ pkg_name }}"
+   state: present
+     
+- name: Create index.html file
+  copy:
+   content: "{{ mycode }}" 
+   dest: "{{ destination }}" 
+     
+- name: using template module to create a dynamic code file
+  template:
+   src: new.html.j2
+   dest: "{{ newdest }}" 
+     
+- name: Copying on sukrit.html file
+  copy:
+   src: sukrit.html
+   dest: /var/www/html/
+  notify: restart apache

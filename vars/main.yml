@@ -1,0 +1,5 @@
+---
+pkg_name: apache2
+mycode: "hello From Ansible Roles"
+destination: /var/www/html/index.html
+newdest: /var/www/html/new.html
